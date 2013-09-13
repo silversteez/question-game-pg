@@ -27,6 +27,17 @@ myApp.factory('phonegapReady', function() {
     };
 });
 
+myApp.factory('navSvc', function ($navigate) {
+    return {
+        slidePage: function (path,type) {
+            $navigate.go(path,type);
+        },
+        back: function () {
+            $navigate.back();
+        }
+    }
+});
+
 myApp.factory('socket', function ($rootScope, serverRoute) {
     var socket = io.connect(serverRoute);
     return {
@@ -88,32 +99,6 @@ myApp.factory('geolocation', function ($rootScope, phonegapReady) {
     };
 });
 
-myApp.factory('accelerometer', function ($rootScope, phonegapReady) {
-    return {
-        getCurrentAcceleration: phonegapReady(function (onSuccess, onError) {
-            navigator.accelerometer.getCurrentAcceleration(function () {
-                var that = this,
-                    args = arguments;
-
-                if (onSuccess) {
-                    $rootScope.$apply(function () {
-                        onSuccess.apply(that, args);
-                    });
-                }
-            }, function () {
-                var that = this,
-                args = arguments;
-
-                if (onError) {
-                    $rootScope.$apply(function () {
-                        onError.apply(that, args);
-                    });
-                }
-            });
-        })
-    };
-});
-
 myApp.factory('notification', function ($rootScope, phonegapReady) {
     return {
         alert: phonegapReady(function (message, alertCallback, title, buttonName) {
@@ -142,43 +127,6 @@ myApp.factory('notification', function ($rootScope, phonegapReady) {
         vibrate: function (milliseconds) {
             navigator.notification.vibrate(milliseconds);
         }
-    };
-});
-
-myApp.factory('navSvc', function($navigate) {
-    return {
-        slidePage: function (path,type) {
-            $navigate.go(path,type);
-        },
-        back: function () {
-            $navigate.back();
-        }
-    }
-});
-
-myApp.factory('compass', function ($rootScope, phonegapReady) {
-    return {
-        getCurrentHeading: phonegapReady(function (onSuccess, onError) {
-            navigator.compass.getCurrentHeading(function () {
-                var that = this,
-                    args = arguments;
-
-                if (onSuccess) {
-                    $rootScope.$apply(function () {
-                        onSuccess.apply(that, args);
-                    });
-                }
-            }, function () {
-                var that = this,
-                    args = arguments;
-
-                if (onError) {
-                    $rootScope.$apply(function () {
-                        onError.apply(that, args);
-                    });
-                }
-            });
-        })
     };
 });
 

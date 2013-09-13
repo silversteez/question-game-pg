@@ -56,21 +56,8 @@ function GeolocationCtrl($scope,navSvc,$rootScope) {
     };
 }
 
-function AccelerCtrl($scope) {
-    navigator.accelerometer.getCurrentAcceleration(function (acceleration) {
-        $scope.acceleration  = acceleration;
-        },function(e) { console.log("Error finding acceleration " + e) });
-}
-
 function DeviceCtrl($scope) {
     $scope.device = device;
-}
-
-function CompassCtrl($scope) {
-    navigator.compass.getCurrentHeading(function (heading) {
-        $scope.heading  = heading;
-        $scope.$apply();
-    },function(e) { console.log("Error finding compass " + e.code) });
 }
 
 function HackerNewsCtrl($scope, $rootScope) {
@@ -78,11 +65,11 @@ function HackerNewsCtrl($scope, $rootScope) {
     // load in data from hacker news unless we already have
     if (!$rootScope.items) {
 
-        jx.load('http://api.ihackernews.com/page',function(data){
-            console.log(JSON.stringify(data));
-            $rootScope.items = data.items;
-            $scope.$apply();
-        },'json');
+        // jx.load('http://api.ihackernews.com/page',function(data){
+        //     console.log(JSON.stringify(data));
+        //     $rootScope.items = data.items;
+        //     $scope.$apply();
+        // },'json');
 
     } else {
         console.log('data already loaded');
