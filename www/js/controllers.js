@@ -3,6 +3,16 @@
 /* Controllers */
 function HomeCtrl($scope,navSvc,$rootScope,socket) {
     $rootScope.showSettings = false;
+
+    socket.emit('my other event', "blah");
+
+    $scope.something = null;
+
+    socket.on('test', function(data) {
+        console.log(data);
+        $scope.something = data.theTest;
+    });
+
     $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
     };

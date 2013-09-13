@@ -1,8 +1,18 @@
 'use strict';
 
 /* Controllers */
-function HomeCtrl($scope,navSvc,$rootScope) {
+function HomeCtrl($scope,navSvc,$rootScope,socket) {
     $rootScope.showSettings = false;
+
+    socket.emit('my other event', "blah");
+
+    $scope.something = null;
+
+    socket.on('test', function(data) {
+        console.log(data);
+        $scope.something = data.theTest;
+    });
+
     $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
     };
@@ -21,15 +31,15 @@ function NotificationCtrl($scope) {
     $scope.alertNotify = function() {
         navigator.notification.alert("Sample Alert",function() {console.log("Alert success")},"My Alert","Close");
     };
-    
+
     $scope.beepNotify = function() {
         navigator.notification.beep(1);
     };
-    
+
     $scope.vibrateNotify = function() {
         navigator.notification.vibrate(3000);
     };
-    
+
     $scope.confirmNotify = function() {
         navigator.notification.confirm("My Confirmation",function(){console.log("Confirm Success")},"Are you sure?",["Ok","Cancel"]);
     };
@@ -66,7 +76,7 @@ function CompassCtrl($scope) {
 function HackerNewsCtrl($scope, $rootScope) {
 
     // load in data from hacker news unless we already have
-    if (!$rootScope.items) {     
+    if (!$rootScope.items) {
 
         jx.load('http://api.ihackernews.com/page',function(data){
             console.log(JSON.stringify(data));
@@ -122,4 +132,3 @@ function CameraCtrl($scope) {
 
 
 
-                     
