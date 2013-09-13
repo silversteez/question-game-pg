@@ -8,17 +8,10 @@ function jsonp_callback(data) {
 
 // Declare app level module which depends on filters, and services
 var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives','ajoslin.mobile-navigate','ngMobile'])
-    .constant('serverRoute', 'http://localhost:3000')
+    .constant('serverRoute', 'http://questiongame.jit.su:80')
     .config(function ($compileProvider){
         $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
     })
-    // .config(function (socketProvider, serverRoute) {
-    //     var mySocket = io.connect(serverRoute);
-    //     socketProvider.ioSocket(mySocket);
-    // })
-    // .run(function (socket) {
-    //     socket.forward('test');
-    // })
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/', {templateUrl: 'partials/homeView.html', controller: 'HomeCtrl'});
         $routeProvider.when('/notification', {templateUrl: 'partials/notificationView.html'});
