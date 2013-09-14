@@ -1,17 +1,8 @@
 'use strict';
 
 /* Controllers */
-function HomeCtrl($scope,navSvc,$rootScope,socket) {
+function HomeCtrl($scope,navSvc,$rootScope) {
     $rootScope.showSettings = false;
-
-    socket.emit('my other event', "blah");
-
-    $scope.something = null;
-
-    socket.on('test', function(data) {
-        console.log(data);
-        $scope.something = data.theTest;
-    });
 
     $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
@@ -25,6 +16,25 @@ function HomeCtrl($scope,navSvc,$rootScope,socket) {
     $scope.closeOverlay = function () {
         $rootScope.showSettings = false;
     };
+}
+
+function LoginCtrl($scope,socket) {
+    $scope.thing = null;
+    $scope.submit = function() {
+        $scope.thing = "hi there!";
+        console.log('submitfunc!');
+    };
+
+    socket.emit('my other event', "blah");
+    $scope.something = null;
+    socket.on('test', function(data) {
+        console.log(data);
+        $scope.something = data.theTest;
+    });
+
+    $scope.$on('$destroy', function (event) {
+        socket.removeAllListeners();
+    });
 }
 
 function NotificationCtrl($scope) {

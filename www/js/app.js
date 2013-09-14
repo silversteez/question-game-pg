@@ -14,6 +14,7 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
     })
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/', {templateUrl: 'partials/homeView.html', controller: 'HomeCtrl'});
+        $routeProvider.when('/login', {templateUrl: 'partials/loginView.html'});
         $routeProvider.when('/notification', {templateUrl: 'partials/notificationView.html'});
         $routeProvider.when('/geolocation', {templateUrl: 'partials/geolocationView.html'});
         $routeProvider.when('/contacts', {templateUrl: 'partials/contactsView.html'});

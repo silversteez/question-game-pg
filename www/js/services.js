@@ -59,17 +59,17 @@ myApp.factory('socket', function ($rootScope, serverRoute) {
           });
         });
       },
+    removeAllListeners: function(eventName, callback){
+        socket.removeAllListeners(eventName, function () {
+          var args = arguments;
+          $rootScope.$apply(function() {
+            if(callback) {
+              callback.apply(socket, args);
+            }
+          });
+        });
+      }
     };
-// removeAllListeners: function(eventName, callback){
-//         socket.removeAllListeners(eventName, function () {
-//           var args = arguments;
-//           $rootScope.$apply(function() {
-//             if(callback) {
-//               callback.apply(socket, args);
-//             }
-//           });
-//         });
-//       }
 });
 
 myApp.factory('geolocation', function ($rootScope, phonegapReady) {
