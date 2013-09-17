@@ -1,42 +1,5 @@
 'use strict';
 
-/* Controllers */
-function HomeCtrl($scope,navSvc,$rootScope) {
-    $rootScope.showSettings = false;
-
-    $scope.slidePage = function (path,type) {
-        navSvc.slidePage(path,type);
-    };
-    $scope.back = function () {
-        navSvc.back();
-    };
-    $scope.changeSettings = function () {
-        $rootScope.showSettings = true;
-    };
-    $scope.closeOverlay = function () {
-        $rootScope.showSettings = false;
-    };
-}
-
-function LoginCtrl($scope,socket) {
-    $scope.thing = null;
-    $scope.submit = function() {
-        $scope.thing = "hi there!";
-        console.log('submitfunc!');
-    };
-
-    socket.emit('my other event', "blah");
-    $scope.something = null;
-    socket.on('test', function(data) {
-        console.log(data);
-        $scope.something = data.theTest;
-    });
-
-    $scope.$on('$destroy', function (event) {
-        socket.removeAllListeners();
-    });
-}
-
 function NotificationCtrl($scope) {
     $scope.alertNotify = function() {
         navigator.notification.alert("Sample Alert",function() {console.log("Alert success")},"My Alert","Close");
