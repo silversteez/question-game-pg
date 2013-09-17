@@ -11,8 +11,8 @@
 </div>
 
 <div class="center" ng-controller="QuestionCtrl">
-    <div class="topcoat-list__header center">{{connected}}</div>
-    <h1>{{question.text}}</h1>
+    <div class="topcoat-list__header center">{{game.gameState}}</div>
+    <h1>{{game.question}}</h1>
 
     <div>
         {{progressBarMsg}}
@@ -31,4 +31,7 @@
         <br/>
         <button class="topcoat-button--cta">Subit Answer!</button>
     </form>
+    <h1 ng-show="answerSubmitted">Answer Submitted!!!</h1>
+
+
 </div>

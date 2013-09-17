@@ -10,12 +10,12 @@
 </div>
 
 <div class="topcoat-list__container list" ng-controller="StartCtrl">
-    <h3 class="topcoat-list__header">Game State: {{gameState}}</h3>
+    <h3 class="topcoat-list__header">Game State: {{game.gameState}}</h3>
     <ul class="topcoat-list">
         <li class="topcoat-list__item" ng-click="slidePage('/login')">
             Login!
         </li>
-        <li class="topcoat-list__item" ng-show="gameState==='question'" ng-click="slidePage('/question')">
+        <li class="topcoat-list__item" ng-show="game.gameState==='question'" ng-click="slidePage('/question')">
             Question Ready! ENTER!!!
         </li>
     </ul>
