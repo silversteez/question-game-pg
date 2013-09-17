@@ -1,17 +1,32 @@
 'use strict';
 
-function QuestionCtrl($scope,game) {
+function QuestionCtrl($scope,game,navSvc) {
 
   $scope.game = game;
 
   $scope.answerSubmitted = false;
-  $scope.questionBarVal = 100;
+  $scope.inTransitionState = false;
+  $scope.displayResults = false;
 
+  $scope.progressBarVal = 100;
   //message can change depending on game state
   $scope.progressBarMsg = "Submit your answer before time's up!";
   //update progress bar
   $scope.$watch('game.cycleTime', function() {
-    $scope.questionBarVal = $scope.game.cycleTime / $scope.game.cycleTotalTime * 100;
+    if ($scope.game.gameState !== 'transition') {
+      $scope.progressBarVal = $scope.game.cycleTime / $scope.game.cycleTotalTime * 100;
+    }
+  });
+
+  $scope.$watch('game.gameState', function() {
+    if ($scope.game.gameState === 'transition') {
+      $scope.inTransitionState = true;
+    } else if ($scope.game.gameState === 'answer') {
+      $scope.progressBarMsg = "Time until next question...";
+      $scope.displayResults = true;
+    } else { //in question state
+      $scope.progressBarMsg = "Submit your answer before time's up!";
+    }
   });
 
   $scope.submitAnswer = function() {
@@ -24,4 +39,7 @@ function QuestionCtrl($scope,game) {
     $scope.answerSubmitted = true;
   };
 
+  $scope.dismissResults = function() {
+    $scope.displayResults = false;
+  };
 }

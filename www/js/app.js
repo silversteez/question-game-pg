@@ -10,7 +10,7 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
         $routeProvider.when('/', {templateUrl: 'partials/homeView.html'});
         $routeProvider.when('/login', {templateUrl: 'partials/loginView.html'});
         $routeProvider.when('/question', {templateUrl: 'partials/questionView.html'});
-        $routeProvider.when('/answer', {templateUrl: 'partials/answerView.html'});
+        // $routeProvider.when('/answer', {templateUrl: 'partials/answerView.html'});
         $routeProvider.when('/notification', {templateUrl: 'partials/notificationView.html'});
         $routeProvider.when('/geolocation', {templateUrl: 'partials/geolocationView.html'});
         $routeProvider.when('/contacts', {templateUrl: 'partials/contactsView.html'});

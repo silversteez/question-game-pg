@@ -4,6 +4,13 @@ myApp.factory('game', function ($rootScope, socket) {
   game.question = null;
   game.cycleTime = null;
   game.cycleTotalTime = null;
+  game.answers = [
+  {rank:1,content:"blahblah",points:"10 pts"},
+  {rank:2,content:"blahblah",points:"10 pts"},
+  {rank:3,content:"blahblah",points:"10 pts"},
+  {rank:4,content:"blahblah",points:"10 pts"},
+  {rank:5,content:"blahblah",points:"10 pts"}
+  ];
 
   socket.on('cycleUpdate', function(data) {
     if (game.gameState !== data.gameState) {
@@ -19,6 +26,14 @@ myApp.factory('game', function ($rootScope, socket) {
   });
 
   socket.on('newQuestion', function(data) {
+  });
+
+  socket.on('transToAnswser', function(data) {
+    game.gameState = data.gameState;
+  });
+
+  socket.on('answers', function(data) {
+    // game.answers = data.answers;
   });
 
   game.submitAnswer = function(answerObj) {

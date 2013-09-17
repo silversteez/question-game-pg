@@ -1,31 +1,12 @@
-
-<div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
-    <div class="topcoat-navigation-bar__item center half">
-        <h1 class="topcoat-navigation-bar__title">RESULTS!!!</h1>
-    </div>
-</div>
-
-<div class="center" ng-controller="AnswerCtrl">
-    <div class="topcoat-list__header center">{{connected}}</div>
-    <h1>Answers</h1>
-    <table>
-        <tr>
-            <td>
-                test1
-            </td>
-            <td>
-                test2
-            </td>
-        </tr>
-        <tr>
-            <td>
-                test3
-            </td>
-            <td>
-                test4
-            </td>
+<div class="center" ng-show="displayResults">
+    <h1>Answers!</h1>
+    <table class="results-table">
+        <tr ng-repeat="answer in game.answers">
+            <td>{{answer.rank}}</td>
+            <td>{{answer.content}}</td>
+            <td>{{answer.points}}</td>
         </tr>
     </table>
 
-    <button class="topcoat-button--cta" ng-click="slidePage('/question')">Dismiss</button>
+    <button class="topcoat-button--cta" ng-click="dismissResults()">Dismiss</button>
 </div>
