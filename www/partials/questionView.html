@@ -12,10 +12,15 @@
 
 <div class="center" ng-controller="QuestionCtrl">
     <div class="topcoat-list__header center">{{connected}}</div>
-    <h1>{{question}}</h1>
-    <div class='topcoat-progress-bar'>
-        <span class='progress' style='width:{{questionBarVal}}% '></span>
+    <h1>{{question.text}}</h1>
+
+    <div>
+        {{progressBarMsg}}
+        <div class='topcoat-progress-bar'>
+            <span class='progress' style='width:{{questionBarVal}}% '></span>
+        </div>
     </div>
+
     <form name="answerform" ng-hide="answerSubmitted" ng-submit="submitAnswer()">
         <br/>
         <br/>
@@ -27,4 +32,3 @@
         <button class="topcoat-button--cta">Subit Answer!</button>
     </form>
 </div>
-<ng-include src="'partials/settingsOverlay.html'"></ng-include>

@@ -16,7 +16,6 @@ function HomeCtrl($scope,navSvc,$rootScope) {
         $rootScope.showSettings = false;
     };
 
-
 }
 
 

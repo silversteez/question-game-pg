@@ -1,6 +1,6 @@
-<div class="topcoat-navigation-bar">
+<div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
     <div class="topcoat-navigation-bar__item center three-quarters">
-        <h1 class="topcoat-navigation-bar__title">Matt's Cool Game</h1>
+        <h1 class="topcoat-navigation-bar__title">Home</h1>
     </div>
     <div class="topcoat-navigation-bar__item right quarter">
         <a class="topcoat-icon-button--quiet" ng-click="changeSettings()">
@@ -8,14 +8,15 @@
         </a>
     </div>
 </div>
-<div class="topcoat-list__container list">
-    <h3 class="topcoat-list__header">Some cool things...</h3>
+
+<div class="topcoat-list__container list" ng-controller="StartCtrl">
+    <h3 class="topcoat-list__header">Game State: {{gameState}}</h3>
     <ul class="topcoat-list">
         <li class="topcoat-list__item" ng-click="slidePage('/login')">
             Login!
         </li>
-        <li class="topcoat-list__item" ng-click="slidePage('/question')">
-            Questions!
+        <li class="topcoat-list__item" ng-show="gameState==='question'" ng-click="slidePage('/question')">
+            Question Ready! ENTER!!!
         </li>
     </ul>
 </div>

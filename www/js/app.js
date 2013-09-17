@@ -7,7 +7,7 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
         $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
     })
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/', {templateUrl: 'partials/homeView.html', controller: 'HomeCtrl'});
+        $routeProvider.when('/', {templateUrl: 'partials/homeView.html'});
         $routeProvider.when('/login', {templateUrl: 'partials/loginView.html'});
         $routeProvider.when('/question', {templateUrl: 'partials/questionView.html'});
         $routeProvider.when('/answer', {templateUrl: 'partials/answerView.html'});
