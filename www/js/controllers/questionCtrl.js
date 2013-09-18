@@ -4,8 +4,9 @@ function QuestionCtrl($scope,game,navSvc) {
 
   $scope.game = game;
 
+  $scope.canSubmitAnswer = true;
   $scope.answerSubmitted = false;
-  $scope.inTransitionState = false;
+  $scope.transToAnswer = false;
   $scope.displayResults = false;
 
   $scope.progressBarVal = 100;
@@ -20,11 +21,19 @@ function QuestionCtrl($scope,game,navSvc) {
 
   $scope.$watch('game.gameState', function() {
     if ($scope.game.gameState === 'transition') {
-      $scope.inTransitionState = true;
+      $scope.canSubmitAnswer = false;
+      $scope.answerSubmitted = false;
+      $scope.transToAnswer = true;
     } else if ($scope.game.gameState === 'answer') {
       $scope.progressBarMsg = "Time until next question...";
+      $scope.transToAnswer = false;
+      $scope.canSubmitAnswer = false;
+      $scope.answerSubmitted = false;
       $scope.displayResults = true;
     } else { //in question state
+      $scope.transToAnswer = false;
+      $scope.answerSubmitted = false;
+      $scope.canSubmitAnswer = true;
       $scope.progressBarMsg = "Submit your answer before time's up!";
     }
   });
@@ -34,8 +43,8 @@ function QuestionCtrl($scope,game,navSvc) {
       answer: $scope.answer,
     };
     game.submitAnswer(answerObj);
-
     $scope.answerform.$setPristine();
+    $scope.canSubmitAnswer = false;
     $scope.answerSubmitted = true;
   };
 

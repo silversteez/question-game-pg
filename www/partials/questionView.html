@@ -12,8 +12,9 @@
 
 <div class="center" ng-controller="QuestionCtrl">
     <div class="topcoat-list__header center">{{game.gameState}}</div>
-    <h1>{{game.question}}</h1>
-
+    <div class="question">
+        <h1>{{game.question}}</h1>
+    </div>
     <div>
         {{progressBarMsg}}
         <div class='topcoat-progress-bar'>
@@ -21,7 +22,7 @@
         </div>
     </div>
 
-    <form name="answerform" ng-hide="answerSubmitted || inTransitionState" ng-submit="submitAnswer()">
+    <form name="answerform" ng-show="canSubmitAnswer" ng-submit="submitAnswer()">
         <br/>
         <br/>
         Answer
@@ -29,10 +30,10 @@
         <input class="topcoat-text-input three-quarters" type="text" ng-model="answer" required/>
         <br/>
         <br/>
-        <button class="topcoat-button--cta">Subit Answer!</button>
+        <button class="topcoat-button--cta">Submit Answer!</button>
     </form>
     <h1 ng-show="answerSubmitted">Answer Submitted!!!</h1>
-    <h1 ng-show="inTransitionState">Time's up! Calculating Answers...</h1>
+    <h1 ng-show="transToAnswer">Time's up! Calculating Answers...</h1>
 <ng-include src="'partials/answerView.html'"></ng-include>
 
 </div>
