@@ -2819,7 +2819,7 @@ Progress bar
 */
 .topcoat-progress-bar {
   overflow: hidden;
-  width: 300px;
+  width: 80%;
   height: 1.5rem;
   margin: auto;
   border-radius: 12px;

@@ -11,7 +11,10 @@
 </div>
 
 <div class="center" ng-controller="QuestionCtrl">
-
+    <div ng-switch="game.gameState" ng-animate=" 'wave' ">
+        <div ng-switch-when="question">question stuff!</div>
+        <div ng-switch-when="answer">answer stuff!</div>
+    </div>
     <div class="section">
         <h3>{{game.question}}</h3>
         <div>
@@ -22,8 +25,8 @@
         </div>
     </div>
 
-    <div class="section">
-        <form name="answerform" ng-show="canSubmitAnswer" ng-submit="submitAnswer()">
+    <div class="section" ng-show="canSubmitAnswer" ng-animate"'wave'">
+        <form name="answerform" ng-submit="submitAnswer()">
             Answer
             <br/>
             <input class="topcoat-text-input three-quarters" type="text" ng-model="answer" required/>
