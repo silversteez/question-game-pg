@@ -1,6 +1,12 @@
-<div class="center" ng-show="displayResults">
-    <h1>Answers!</h1>
-    <table class="results-table">
+<div class="section" ng-show="displayResults">
+    <h3>The results are in!</h3>
+    <table class="basictable">
+        <tr>{{game.question}}</tr>
+        <tr>
+            <th>Rank</th>
+            <th>Answer</th>
+            <th>Points</th>
+        </tr>
         <tr ng-repeat="answer in game.answers">
             <td>{{answer.rank}}</td>
             <td>{{answer.content}}</td>
