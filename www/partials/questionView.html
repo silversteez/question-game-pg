@@ -11,33 +11,51 @@
 </div>
 
 <div class="center" ng-controller="QuestionCtrl">
-    <div ng-switch="game.gameState" ng-animate=" 'wave' ">
-        <div ng-switch-when="question">question stuff!</div>
-        <div ng-switch-when="answer">answer stuff!</div>
-    </div>
-    <div class="section">
-        <h3>{{game.question}}</h3>
-        <div>
-            {{progressBarMsg}}
-            <div class='topcoat-progress-bar'>
-                <span class='progress' style='width:{{progressBarVal}}% '></span>
+    <div
+    ng-switch on="game.gameState"
+    ng-animate="{enter: 'wave-enter', leave: 'wave-leave'}">
+
+        <div class="section" ng-switch-when="question">
+            <ng-include src="'partials/progressBar.html'"></ng-include>
+            <h3>{{game.question}}</h3>
+
+            <div ng-show="canSubmitAnswer">
+                <form name="answerform" ng-submit="submitAnswer()">
+                    Answer
+                    <br/>
+                    <input class="topcoat-text-input three-quarters" type="text" ng-model="answer" required/>
+                    <br/>
+                    <br/>
+                    <button class="topcoat-button--cta">Submit Answer!</button>
+                </form>
+
+                <h3 ng-show="answerSubmitted">Answer Submitted!!!</h3>
             </div>
         </div>
+
+        <div class="section" ng-switch-when="transition">
+            <ng-include src="'partials/progressBar.html'"></ng-include>
+            <h3>Time's up! Calculating Answers...</h3>
+        </div>
+
+        <div class="section" ng-show="displayResults" ng-switch-when="answer">
+            <ng-include src="'partials/progressBar.html'"></ng-include>
+            <h3>The results are in!</h3>
+            <table class="basictable">
+                <tr>{{game.question}}</tr>
+                <tr>
+                    <th>Rank</th>
+                    <th>Answer</th>
+                    <th>Points</th>
+                </tr>
+                <tr ng-repeat="answer in game.answers">
+                    <td>{{answer.rank}}</td>
+                    <td>{{answer.content}}</td>
+                    <td>{{answer.points}}</td>
+                </tr>
+            </table>
+        <!-- <button class="topcoat-button--cta" ng-click="dismissResults()">Dismiss</button> -->
+        </div>
     </div>
-
-    <div class="section" ng-show="canSubmitAnswer" ng-animate"'wave'">
-        <form name="answerform" ng-submit="submitAnswer()">
-            Answer
-            <br/>
-            <input class="topcoat-text-input three-quarters" type="text" ng-model="answer" required/>
-            <br/>
-            <br/>
-            <button class="topcoat-button--cta">Submit Answer!</button>
-        </form>
-
-        <h3 ng-show="answerSubmitted">Answer Submitted!!!</h3>
-        <h3 ng-show="transToAnswer">Time's up! Calculating Answers...</h3>
-    </div>
-<ng-include src="'partials/answerView.html'"></ng-include>
-
+<!-- <ng-include src="'partials/answerView.html'"></ng-include> -->
 </div>
