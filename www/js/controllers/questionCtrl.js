@@ -1,6 +1,6 @@
 'use strict';
 
-function QuestionCtrl($scope,game,navSvc) {
+function QuestionCtrl($rootScope,$scope,game,navSvc) {
 
   $scope.game = game;
 
@@ -40,10 +40,11 @@ function QuestionCtrl($scope,game,navSvc) {
   });
 
   $scope.submitAnswer = function() {
-    console.log('scope is ', $scope);
     var answerObj = {
-      answer: $scope.data.answer,
+      username: $rootScope.username,
+      answer: $scope.data.answer
     };
+    console.log('answerObj is ', answerObj);
     game.submitAnswer(answerObj);
     //$scope.data.answerform.$setPristine();
     $scope.data.canSubmitAnswer = false;
