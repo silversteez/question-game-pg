@@ -18,19 +18,20 @@
         <div class="section" ng-switch-when="question">
             <ng-include src="'partials/progressBar.html'"></ng-include>
             <h3>{{game.question}}</h3>
-
-            <div ng-show="canSubmitAnswer">
-                <form name="answerform" ng-submit="submitAnswer()">
+            <div ng-show="data.canSubmitAnswer">
+                <form name="data.answerform" ng-submit="submitAnswer()">
                     Answer
                     <br/>
-                    <input class="topcoat-text-input three-quarters" type="text" ng-model="answer" required/>
+                    <input
+                        class="topcoat-text-input three-quarters"
+                        type="text" ng-model="data.answer" required/>
                     <br/>
                     <br/>
                     <button class="topcoat-button--cta">Submit Answer!</button>
                 </form>
 
-                <h3 ng-show="answerSubmitted">Answer Submitted!!!</h3>
             </div>
+            <h3 ng-show="data.answerSubmitted">Answer Submitted!!!</h3>
         </div>
 
         <div class="section" ng-switch-when="transition">
@@ -38,7 +39,7 @@
             <h3>Time's up! Calculating Answers...</h3>
         </div>
 
-        <div class="section" ng-show="displayResults" ng-switch-when="answer">
+        <div class="section" ng-switch-when="answer">
             <ng-include src="'partials/progressBar.html'"></ng-include>
             <h3>The results are in!</h3>
             <table class="basictable">
@@ -54,7 +55,6 @@
                     <td>{{answer.points}}</td>
                 </tr>
             </table>
-        <!-- <button class="topcoat-button--cta" ng-click="dismissResults()">Dismiss</button> -->
         </div>
     </div>
 <!-- <ng-include src="'partials/answerView.html'"></ng-include> -->
