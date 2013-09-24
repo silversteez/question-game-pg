@@ -6,4 +6,12 @@ angular.module('myApp.directives', [])
     return function(scope, elm, attrs) {
       elm.text(version);
     };
-  }]);
+  }])
+  .directive('resetProgBar', function() {
+    return function(scope, elm, attrs) {
+      scope.$watch('game.gameState', function() {
+        elm.removeClass('progress-animate').css('width', '100%').addClass('progress-animate');
+      });
+    };
+  })
+  ;

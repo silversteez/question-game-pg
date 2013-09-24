@@ -2832,6 +2832,9 @@ Progress bar
   border-radius: 12px 0 0 12px;
   background-color: #9be983;
   box-shadow: inset 0 1px rgba(0,0,0,0.12);
+
+}
+.topcoat-progress-bar > .progress-animate {
   -webkit-transition: width 1s linear;
   transition: width 1s linear;
 }
