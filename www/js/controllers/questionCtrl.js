@@ -9,6 +9,7 @@ function QuestionCtrl($rootScope,$scope,game,navSvc) {
   $scope.data.canSubmitAnswer = true;
   $scope.data.answerSubmitted = false;
   $scope.data.transToAnswer = false;
+  $scope.data.clientState = null;
   $scope.data.answer = null;
 
   $scope.progressBarVal = 100;
@@ -23,6 +24,7 @@ function QuestionCtrl($rootScope,$scope,game,navSvc) {
 
   $scope.$watch('game.gameState', function() {
     if ($scope.game.gameState === 'transition') {
+      $scope.data.clientState = "showAnswer";
       $scope.data.canSubmitAnswer = false;
       $scope.data.answerSubmitted = false;
       $scope.data.transToAnswer = true;
@@ -32,6 +34,7 @@ function QuestionCtrl($rootScope,$scope,game,navSvc) {
       $scope.data.canSubmitAnswer = false;
       $scope.data.answerSubmitted = false;
     } else { //in question state
+      $scope.data.clientState = "showQuestion";
       $scope.data.transToAnswer = false;
       $scope.data.answerSubmitted = false;
       $scope.data.canSubmitAnswer = true;
@@ -47,7 +50,7 @@ function QuestionCtrl($rootScope,$scope,game,navSvc) {
     console.log('answerObj is ', answerObj);
     game.submitAnswer(answerObj);
     //$scope.data.answerform.$setPristine();
-    // $scope.data.canSubmitAnswer = false;
+    $scope.data.canSubmitAnswer = false;
     $scope.data.answerSubmitted = true;
   };
 }
