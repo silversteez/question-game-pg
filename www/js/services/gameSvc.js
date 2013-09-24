@@ -37,8 +37,9 @@ myApp.factory('game', function ($rootScope, socket) {
   });
 
   socket.on('answers', function(data) {
+
     updateGameState(data.gameState, data.cycleTotalTime);
-    // game.answers = data.answers;
+    game.answers = data.answers;
   });
 
   game.submitAnswer = function(answerObj) {

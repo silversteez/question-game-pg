@@ -47,7 +47,7 @@ function QuestionCtrl($rootScope,$scope,game,navSvc) {
     console.log('answerObj is ', answerObj);
     game.submitAnswer(answerObj);
     //$scope.data.answerform.$setPristine();
-    $scope.data.canSubmitAnswer = false;
+    // $scope.data.canSubmitAnswer = false;
     $scope.data.answerSubmitted = true;
   };
 }

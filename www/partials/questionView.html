@@ -4,7 +4,7 @@
         <h1 class="topcoat-navigation-bar__title">HAPPY FUN TIME!</h1>
     </div>
         <div class="topcoat-navigation-bar__item right quarter">
-        <a class="topcoat-icon-button--quiet" ng-click="back()">
+        <a class="topcoat-icon-button--quiet" ng-click="slidePage('/')">
             <span class="topcoat-icon settings-icon"></span>
         </a>
     </div>
@@ -47,11 +47,13 @@
                 <tr>
                     <th>Rank</th>
                     <th>Answer</th>
-                    <th>Points</th>
+                    <th>Popularity</th>
+                    <th>Points Awarded</th>
                 </tr>
                 <tr ng-repeat="answer in game.answers">
                     <td>{{answer.rank}}</td>
                     <td>{{answer.content}}</td>
+                    <td>{{answer.percent}}</td>
                     <td>{{answer.points}}</td>
                 </tr>
             </table>
