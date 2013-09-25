@@ -1,3 +1,25 @@
+.header {
+  width: 100%;
+  padding: 10px;
+  height: 30px;
+}
+
+.titleSection {
+  float: left;
+  line-height: 10px;
+  margin-left: 10px;
+}
+
+.userSection {
+  float: right;
+}
+.displayName {
+  float: right;
+}
+.logoutIconSection {
+  float: right;
+  margin: 20px 25px 0 5px;
+}
 
 .section {
   width: 90%;
@@ -92,6 +114,13 @@ table.basictable td {
     background-size: cover;
 }
 
+.logout-icon {
+  background: url("../img/logout.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
 img {
     margin-top: 10px;
     padding: 25px;
@@ -109,7 +138,7 @@ p {
   color: #c6c8c8;
 }
 
-h4 {
+/*h4 {
   padding: 0;
   margin: 0;
   font: inherit;
@@ -123,7 +152,7 @@ h4 {
   font-size: 1.0rem;
   font-weight: 400;
   color: #c6c8c8;
-}
+}*/
 
 
 .fade-leave, .fade-enter {

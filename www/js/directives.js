@@ -14,4 +14,7 @@ angular.module('myApp.directives', [])
       });
     };
   })
+  .directive('header', function() {
+
+  })
   ;

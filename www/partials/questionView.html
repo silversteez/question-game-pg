@@ -1,17 +1,23 @@
 
-<div ng-controller="HomeCtrl">
-    <div class="left">
-        <h2 class="">The Feud</h2>
+<div class="header" ng-controller="HomeCtrl">
+
+    <div class="titleSection">
+        <h1>The Feud</h1>
     </div>
-    <div class="right">
-        <h3 class="">{{username}}</h3>
-        <a class="topcoat-icon-button--quiet" ng-click="slidePage('/')">
-            <span class="topcoat-icon settings-icon"></span>
+
+    <div class="logoutIconSection">
+        <a ng-click="slidePage('/login')">
+            <span class="topcoat-icon logout-icon"></span>
         </a>
     </div>
+
+    <div class="displayName">
+        <h4>{{data.displayName}}</h4>
+    </div>
+
 </div>
 
-<div class="center" ng-controller="QuestionCtrl">
+<div class="center">
     <div
     ng-switch on="data.clientState"
     ng-animate="{enter: 'wave-enter', leave: 'wave-leave'}">
@@ -20,14 +26,11 @@
             <ng-include src="'partials/progressBar.html'"></ng-include>
             <h3>{{game.question}}</h3>
             <div ng-show="data.canSubmitAnswer">
+
                 <form name="data.answerform" ng-submit="submitAnswer()">
-                    Answer
-                    <br/>
                     <input
-                        class="topcoat-text-input three-quarters"
+                        class="topcoat-text-input half"
                         type="text" ng-model="data.answer" required/>
-                    <br/>
-                    <br/>
                     <button class="topcoat-button--cta">Submit</button>
                 </form>
 
