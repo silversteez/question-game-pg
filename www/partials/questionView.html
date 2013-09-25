@@ -1,9 +1,10 @@
 
-<div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
-    <div class="topcoat-navigation-bar__item center half">
-        <h1 class="topcoat-navigation-bar__title">HAPPY FUN TIME!</h1>
+<div ng-controller="HomeCtrl">
+    <div class="left">
+        <h2 class="">The Feud</h2>
     </div>
-        <div class="topcoat-navigation-bar__item right quarter">
+    <div class="right">
+        <h3 class="">{{username}}</h3>
         <a class="topcoat-icon-button--quiet" ng-click="slidePage('/')">
             <span class="topcoat-icon settings-icon"></span>
         </a>
@@ -34,11 +35,6 @@
             <h3 ng-show="data.answerSubmitted">Answer Submitted!!!</h3>
         </div>
 
- <!--        <div class="section" ng-switch-when="transition">
-            <ng-include src="'partials/progressBar.html'"></ng-include>
-            <h3>Time's up! Calculating Answers...</h3>
-        </div>
- -->
         <div class="section" ng-switch-when="showAnswer">
             <ng-include src="'partials/progressBar.html'"></ng-include>
             <h3>The results are in!</h3>
@@ -48,7 +44,7 @@
                     <th>Rank</th>
                     <th>Answer</th>
                     <th>Popularity</th>
-                    <th>Points Awarded</th>
+                    <th>Points</th>
                 </tr>
                 <tr ng-repeat="answer in game.answers">
                     <td>{{answer.rank}}</td>

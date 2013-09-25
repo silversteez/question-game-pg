@@ -1,6 +1,6 @@
 
 .section {
-  width: 80%;
+  width: 90%;
   background-color: #fff;
   -webkit-border-radius: 6px;
   border-radius: 6px;
@@ -14,7 +14,7 @@
 table.basictable {
   color:#333333;
   border-width: 1px;
-  border-color: #666666;
+  border-color: #c7c7c7;
   border-collapse: collapse;
   margin: 10px auto;
   width: 80%;
@@ -23,14 +23,14 @@ table.basictable th {
   border-width: 1px;
   padding: 8px;
   border-style: solid;
-  border-color: #666666;
-  background-color: #dedede;
+  border-color: #c7c7c7;
+  background-color: #eeeeee;
 }
 table.basictable td {
   border-width: 1px;
   padding: 8px;
   border-style: solid;
-  border-color: #666666;
+  border-color: #c7c7c7;
   background-color: #ffffff;
 }
 
