@@ -43,7 +43,13 @@
         <div class="section" ng-switch-when="showAnswer">
             <ng-include src="'partials/progressBar.html'"></ng-include>
             <h3 class="question">{{game.question}}</h3>
-            <table class="basictable">
+
+            <div ng-show="game.gameState==='transition'">
+                Processing results...</br>
+                <div class="loading-spinner"></div>
+            </div>
+
+            <table ng-show="game.gameState==='answer'" class="basictable">
                 <tr>
                     <th>Rank</th>
                     <th>Answer</th>
