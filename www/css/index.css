@@ -1,5 +1,4 @@
 .header {
-  width: 100%;
   padding: 10px;
   height: 30px;
 }
@@ -18,19 +17,33 @@
 }
 .logoutIconSection {
   float: right;
-  margin: 20px 25px 0 5px;
+  margin: 20px 10px 0 5px;
 }
 
-.section {
-  width: 90%;
-  background-color: #fff;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  padding: 10px;
-  margin: 10px auto;
-  left: 0;
-  right: 0;
+.section,
+.footer {
   position: absolute;
+  left: 0;
+
+  width: 96%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 2%;
+
+  border-radius: 6px;
+}
+.section {
+  top: 50px;
+  bottom: 95px;
+
+  background-color: #fff;
+}
+.footer {
+  height: 80px;
+  bottom: 0;
+
+  background-color: #1b5568;
+  color: #fff;
 }
 
 table.basictable {
@@ -38,19 +51,20 @@ table.basictable {
   border-width: 1px;
   border-color: #c7c7c7;
   border-collapse: collapse;
-  margin: 10px auto;
-  width: 80%;
+  margin: 10px 2%;
+  width: 96%;
+  font-size: 14px;
 }
 table.basictable th {
   border-width: 1px;
-  padding: 8px;
+  padding: 3px;
   border-style: solid;
   border-color: #c7c7c7;
   background-color: #eeeeee;
 }
 table.basictable td {
   border-width: 1px;
-  padding: 8px;
+  padding: 3px;
   border-style: solid;
   border-color: #c7c7c7;
   background-color: #ffffff;
@@ -180,14 +194,16 @@ p {
 
 /* LEFT TO RIGHT SLIDE */
 .wave-enter, .wave-leave {
-    -webkit-transition:all linear 0.5s;
-    -moz-transition:all linear 0.5s;
-    -o-transition:all linear 0.5s;
-    transition:all linear 0.5s;/*
-    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;*/
+/*    -webkit-transition:all ease-in-out 0.5s;
+    -moz-transition:all ease-in-out 0.5s;
+    -o-transition:all ease-in-out 0.5s;
+    transition:all ease-in-out 0.5s;*/
+
+    -webkit-transition:all cubic-bezier(.8, 0, .45, 1) 0.5s;
+    -moz-transition:all cubic-bezier(.8, 0, .45, 1) 0.5s;
+    -o-transition:all cubic-bezier(.8, 0, .45, 1) 0.5s;
+    transition:all cubic-bezier(.8, 0, .45, 1) 0.5s;
+
 }
 
 .wave-enter {

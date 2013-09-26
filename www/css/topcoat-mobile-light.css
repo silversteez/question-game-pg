@@ -2713,6 +2713,7 @@ input[type="search"]::-webkit-search-cancel-button {
 @font-face {
   font-family: "Noticia";
   src: url("../font/Noticia_Text/NoticiaText-Regular.ttf");
+  font-weight: 400;
 }
 @font-face {
   font-family: "Noticia";
@@ -2727,7 +2728,7 @@ body {
   background: #87eff9;
   color: #1b5568;
   font: 16px "Noticia", helvetica, arial, sans-serif;
-  font-weight: 200;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
 }
 

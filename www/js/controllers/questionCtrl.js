@@ -1,12 +1,12 @@
 'use strict';
 
-function QuestionCtrl($rootScope,$scope,game,navSvc) {
+function QuestionCtrl($rootScope,$scope,game,user,navSvc) {
 
   $scope.game = game;
 
   $scope.data = {};
 
-  $scope.data.displayName = game.username || 'Guest';
+  $scope.data.displayName = user.username || 'Guest';
   $scope.data.canSubmitAnswer = true;
   $scope.data.answerSubmitted = false;
   $scope.data.transToAnswer = false;
@@ -45,7 +45,7 @@ function QuestionCtrl($rootScope,$scope,game,navSvc) {
 
   $scope.submitAnswer = function() {
     var answerObj = {
-      username: $rootScope.username,
+      username: user.username,
       answer: $scope.data.answer
     };
     console.log('answerObj is ', answerObj);
