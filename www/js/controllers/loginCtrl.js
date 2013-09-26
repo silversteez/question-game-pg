@@ -7,7 +7,7 @@ function LoginCtrl($scope,user) {
     $scope.data.password = null;
 
     //change this to show logout stuff if user is logged in
-    if (user.username === undefined) {
+    if (user.username === null) {
         $scope.data.showLogin = true;
     } else {
         $scope.data.showLogin = false;
