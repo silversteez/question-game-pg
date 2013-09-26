@@ -1,6 +1,6 @@
 'use strict';
 
-var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives','ajoslin.mobile-navigate','ngMobile'])
+var myApp = angular.module('myApp', ['myApp.services', 'myApp.directives','ajoslin.mobile-navigate','ngMobile'])
     // .constant('serverRoute', 'http://questiongame.jit.su:80')
     .constant('serverRoute', 'http://localhost:3000')
     .config(function ($compileProvider){

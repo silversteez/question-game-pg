@@ -15,7 +15,6 @@ function HomeCtrl($scope,navSvc,$rootScope) {
     $scope.closeOverlay = function () {
         $rootScope.showSettings = false;
     };
-
 }
 
 

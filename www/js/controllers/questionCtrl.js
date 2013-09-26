@@ -50,7 +50,6 @@ function QuestionCtrl($rootScope,$scope,game,user,navSvc) {
         user.savePoints(user.points);
       }
     }
-    console.log(user.points, typeof user.points);
   };
 
   $scope.$watch('game.gameState', function() {
@@ -83,7 +82,6 @@ function QuestionCtrl($rootScope,$scope,game,user,navSvc) {
     };
     game.submitAnswer(answerObj);
     angular.element('input').blur();
-    console.log($scope);
     $scope.data.canSubmitAnswer = false;
     $scope.data.answerSubmitted = true;
   };

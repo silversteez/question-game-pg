@@ -17,7 +17,7 @@ myApp.factory('game', function (socket,user) {
   };
 
   socket.on('cycleUpdate', function(data) {
-    console.log("cycleUpdate ", data.gameState);
+    // console.log("cycleUpdate ", data.gameState);
     updateGameState(data.gameState, data.cycleTotalTime);
     //updata cycleTime every update
     game.cycleTime = data.cycleTime;
@@ -25,18 +25,18 @@ myApp.factory('game', function (socket,user) {
   });
 
   socket.on('newQuestion', function(data) {
-    console.log("newQuestion ", data.gameState);
+    // console.log("newQuestion ", data.gameState);
     updateGameState(data.gameState, data.cycleTotalTime);
     game.question = data.question;
   });
 
   socket.on('transToAnswer', function(data) {
-    console.log("transToAnswer ", data.gameState);
+    // console.log("transToAnswer ", data.gameState);
     updateGameState(data.gameState, data.cycleTotalTime);
   });
 
   socket.on('answers', function(data) {
-    console.log("answers ", data.gameState);
+    // console.log("answers ", data.gameState);
     updateGameState(data.gameState, data.cycleTotalTime);
     game.answers = data.answers;
   });
