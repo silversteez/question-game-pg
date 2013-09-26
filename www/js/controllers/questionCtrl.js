@@ -77,4 +77,17 @@ function QuestionCtrl($rootScope,$scope,game,user,navSvc) {
     $scope.data.canSubmitAnswer = false;
     $scope.data.answerSubmitted = true;
   };
+
+
+  var showModal = function() {
+    $scope.data.showModal = true;
+    console.log('showmodal');
+  };
+  $scope.hideModal = function() {
+    $scope.data.showModal = false;
+  };
+
+  if (user.username === null) {
+    showModal();
+  }
 }
