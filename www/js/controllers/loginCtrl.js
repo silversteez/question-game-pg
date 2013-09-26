@@ -16,7 +16,10 @@ function LoginCtrl($scope,user) {
     $scope.submit = function() {
         user.username = $scope.data.username;
         user.saveUserNameAndPassword($scope.data.username, $scope.data.password);
-
+        console.log($scope.loginform);
+        $scope.data.username = '';
+        $scope.data.password = '';
+        angular.element('input').blur();
         $scope.data.showLogin = false;
     };
 }

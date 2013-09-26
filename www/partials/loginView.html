@@ -1,24 +1,28 @@
-<div class="" ng-controller="HomeCtrl">
-    <a class="topcoat-icon-button--quiet" ng-click="back()">
-        <span class="topcoat-icon home-icon"></span>
-    </a>
-    <div class="center">
-        <h3>Login</h3>
+
+<div class="header" ng-controller="HomeCtrl">
+
+    <div class="backIconSection">
+        <a ng-click="back()">
+            <span class="topcoat-icon back-icon"></span>
+        </a>
+    </div>
+
+    <div class="titleSection">
+        <h2>Login</h2>
     </div>
 </div>
 
-<div class="center" ng-controller="LoginCtrl">
-    <div class="topcoat-list__header center">Please login to do stuff!</div>
-    <form name="login-form" ng-show="data.showLogin" ng-submit="submit()">
+<div class="section center" ng-controller="LoginCtrl">
+    <form name="loginform" ng-submit="submit()">
         <br/>
         Username
         <br/>
-        <input class="topcoat-text-input three-quarters" type="text" ng-model="data.username" required/>
+        <input class="topcoat-text-input three-quarters" type="text" ng-model="data.username" placeholder="username" required/>
         <br/>
         <br/>
         Password
         <br/>
-        <input class="topcoat-text-input three-quarters" type="password" ng-model="data.password" required/>
+        <input class="pw1 topcoat-text-input three-quarters" type="password" ng-model="data.password" placeholder="password" required/>
         <br/>
         <br/>
         <button class="topcoat-button--cta">Login!</button>
@@ -27,14 +31,3 @@
     </form>
 </div>
 
-<div class="topcoat-list__container list" ng-controller="StartCtrl">
-    <h3 class="topcoat-list__header">Game State: {{game.gameState}}</h3>
-    <ul class="topcoat-list">
-     <!--    <li class="topcoat-list__item" ng-click="slidePage('/login')">
-            Login!
-        </li> -->
-        <li class="topcoat-list__item" ng-show="game.gameState==='question'" ng-click="slidePage('/question')">
-            Question Ready! ENTER!!!
-        </li>
-    </ul>
-</div>

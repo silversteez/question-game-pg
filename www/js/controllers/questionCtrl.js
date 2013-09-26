@@ -13,6 +13,7 @@ function QuestionCtrl($rootScope,$scope,game,user,navSvc) {
   $scope.data.answerSubmitted = false;
   $scope.data.transToAnswer = false;
   $scope.data.clientState = null;
+  $scope.data.answerTemp = null; //hack so i can clear form field.
   $scope.data.answer = null;
 
   $scope.progressBarVal = 100;
@@ -74,13 +75,15 @@ function QuestionCtrl($rootScope,$scope,game,user,navSvc) {
   });
 
   $scope.submitAnswer = function() {
+    $scope.data.answer = $scope.data.answerTemp;
+    $scope.data.answerTemp = '';
     var answerObj = {
       username: user.username,
       answer: $scope.data.answer
     };
-    console.log('answerObj is ', answerObj);
     game.submitAnswer(answerObj);
-    //$scope.data.answerform.$setPristine();
+    angular.element('input').blur();
+    console.log($scope);
     $scope.data.canSubmitAnswer = false;
     $scope.data.answerSubmitted = true;
   };

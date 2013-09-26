@@ -27,15 +27,17 @@
             <h3>{{game.question}}</h3>
             <div ng-show="data.canSubmitAnswer">
 
-                <form name="data.answerform" ng-submit="submitAnswer()">
+                <form name="answerform" ng-submit="submitAnswer()">
                     <input
                         class="topcoat-text-input half"
-                        type="text" ng-model="data.answer" required/>
+                        type="text" ng-model="data.answerTemp"
+                        placeholder="answer"
+                        required/>
                     <button class="topcoat-button--cta">Submit</button>
                 </form>
 
             </div>
-            <h3 ng-show="data.answerSubmitted">You said "{{data.answer}}".</h3>
+            <h2 ng-show="data.answerSubmitted">You said <span class="redText">{{data.answer}}</span>.</h2>
         </div>
 
         <div class="section" ng-switch-when="showAnswer">

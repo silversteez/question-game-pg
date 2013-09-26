@@ -19,7 +19,13 @@
   float: right;
   margin: 20px 10px 0 5px;
 }
-
+.backIconSection {
+  float: left;
+  margin: 15px 5px 0 0;
+}
+.redText {
+  color: #f5393d;
+}
 .section,
 .footer {
   position: absolute;
@@ -141,6 +147,13 @@ table.basictable td {
 
 .logout-icon {
   background: url("../img/logout.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.back-icon {
+  background: url("../img/backArrow.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
