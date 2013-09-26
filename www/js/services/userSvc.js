@@ -7,6 +7,14 @@ myApp.factory('user', function (socket) {
     storage.setItem('password', pw);
   };
 
+  user.deleteProfile = function() {
+    storage.removeItem('username');
+    storage.removeItem('password');
+    storage.removeItem('points');
+    user.username = null;
+    user.points = 0;
+  };
+
   user.savePoints = function(points) {
     storage.setItem('points', points);
   };

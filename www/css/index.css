@@ -26,6 +26,10 @@
 .redText {
   color: #f5393d;
 }
+.question {
+  line-height: 25px;
+  margin: 10px;
+}
 .section,
 .footer {
   position: absolute;

@@ -9,6 +9,8 @@ angular.module('myApp.directives', [])
   }])
   .directive('resetProgBar', function() {
     return function(scope, elm, attrs) {
+      // elm.removeClass('progress-animate').css('width', '{{progressBarVal}}%').addClass('progress-animate');
+
       scope.$watch('game.gameState', function() {
         elm.removeClass('progress-animate').css('width', '100%').addClass('progress-animate');
       });

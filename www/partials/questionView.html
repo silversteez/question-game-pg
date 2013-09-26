@@ -24,7 +24,7 @@
 
         <div class="section" ng-switch-when="showQuestion">
             <ng-include src="'partials/progressBar.html'"></ng-include>
-            <h3>{{game.question}}</h3>
+            <h3 class="question">{{game.question}}</h3>
             <div ng-show="data.canSubmitAnswer">
 
                 <form name="answerform" ng-submit="submitAnswer()">
@@ -37,12 +37,12 @@
                 </form>
 
             </div>
-            <h2 ng-show="data.answerSubmitted">You said <span class="redText">{{data.answer}}</span>.</h2>
+            <h4 ng-show="data.answerSubmitted">You said <span class="redText">{{data.answer}}</span>.</h4>
         </div>
 
         <div class="section" ng-switch-when="showAnswer">
             <ng-include src="'partials/progressBar.html'"></ng-include>
-            <h3>{{game.question}}</h3>
+            <h3 class="question">{{game.question}}</h3>
             <table class="basictable">
                 <tr>
                     <th>Rank</th>

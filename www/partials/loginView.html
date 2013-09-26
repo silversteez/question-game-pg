@@ -8,12 +8,13 @@
     </div>
 
     <div class="titleSection">
-        <h2>Login</h2>
+        <h2>Manage Account</h2>
     </div>
 </div>
 
 <div class="section center" ng-controller="LoginCtrl">
-    <form name="loginform" ng-submit="submit()">
+    <form name="loginform" ng-show="data.showLogin" ng-submit="submit()">
+        <h3>Create an account!</h3>
         <br/>
         Username
         <br/>
@@ -29,5 +30,11 @@
         <br/>
         <br/>
     </form>
+    <div ng-hide="data.showLogin">
+        <h3>You are now signed in as {{user.username}}.</h3></br>
+        You may delete your current account by pressing this button:</br></br>
+        <button class="topcoat-button--cta" ng-click="deleteProfile()">Delete Account!</button>
+    </div>
+
 </div>
 
