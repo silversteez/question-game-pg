@@ -29,17 +29,9 @@ function QuestionCtrl($rootScope,$scope,game,user,navSvc) {
   $scope.$watch('user.points', function() {
     console.log("watching user points");
     if (user.points > $scope.data.displayPoints) {
-      $scope.scoreInterval = setInterval(increasePointsByOne, 500);
+      $scope.data.displayPoints = user.points;
     }
   });
-
-  var increasePointsByOne = function() {
-    $scope.data.displayPoints++;
-    // console.log("increasing by one");
-    if ($scope.data.displayPoints >= user.points) {
-      clearInterval($scope.scoreInterval);
-    }
-  };
 
   var checkUserAnswer = function() {
     for (var i = 0; i < game.answers.length; i++) {
