@@ -16,6 +16,13 @@ myApp.factory('game', function (socket,user) {
     }
   };
 
+  socket.on('initialUpdate', function(data) {
+    game.question = data.question;
+    updateGameState(data.gameState, data.cycleTotalTime);
+    game.cycleTime = data.cycleTime;
+    game.numCurrentPlayers = data.numCurrentPlayers;
+  });
+
   socket.on('cycleUpdate', function(data) {
     // console.log("cycleUpdate ", data.gameState);
     updateGameState(data.gameState, data.cycleTotalTime);

@@ -7,7 +7,7 @@ function QuestionCtrl($rootScope,$scope,game,user,navSvc) {
 
   $scope.data = {};
 
-  $scope.data.displayName = user.username || 'Guest';
+  $scope.data.displayName = user.username || 'Login';
   $scope.data.displayPoints = user.points;
   $scope.data.canSubmitAnswer = true;
   $scope.data.answerSubmitted = false;

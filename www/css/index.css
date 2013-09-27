@@ -21,7 +21,7 @@
 }
 .backIconSection {
   float: left;
-  margin: 15px 5px 0 0;
+  margin: 15px 5px 0 20px;
 }
 .redText {
   color: #f5393d;
@@ -151,6 +151,13 @@ table.basictable td {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
+}
+
+.login-icon {
+  background: url("../img/login.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
 
 .logout-icon {

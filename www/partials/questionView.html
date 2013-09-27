@@ -6,14 +6,16 @@
 
     <div class="logoutIconSection">
         <a ng-click="slidePage('/login')">
-            <span class="topcoat-icon logout-icon"></span>
+            <span ng-show="user.username!==null" class="topcoat-icon logout-icon"></span>
+            <span ng-show="user.username===null" class="topcoat-icon login-icon"></span>
         </a>
     </div>
 
     <div class="displayName">
-        <h4>{{data.displayName}}</h4>
+        <a ng-click="slidePage('/login')">
+            <h4>{{data.displayName}}</h4>
+        </a>
     </div>
-
 </div>
 
 <div class="center">
