@@ -58,6 +58,8 @@ function QuestionCtrl($rootScope,$scope,game,user,navSvc) {
       $scope.data.answerSubmitted = false;
     } else { //in question state
       $scope.data.clientState = "showQuestion";
+      $scope.data.answer = null;
+      $scope.data.answerTemp = '';
       $scope.data.transToAnswer = false;
       $scope.data.answerSubmitted = false;
       $scope.data.canSubmitAnswer = true;
